@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    
+    // var score = parseInt(window.prompt('input'));
+
+    // document.write(score);
+
+    // if(score > 90 && score <= 100) {
+    //     document.write('Alibaba');
+    // }
+    // if(score > 80 && score <= 90) {
+    //     document.write('Tencent');
+    // }
+    // if(score > 70 && score <= 80) {
+    //     document.write('Baidu');
+    // }
+    // if(score > 60 && score <= 70) {
+    //     document.write('mogujie');
+    // }
+
+    // if(score <= 60) {
+    //     document.write('Dead');
+    // }
+        var count = 0;
+        var i = 1
+        for (; i < 100; i++){
+            for (var j = 1; j <= i; j++){
+            
+            i % j == 0 &&  count ++;
+                 
+            }
+            count == 2 && document.write(i + " ");
+            
+            count = 0;
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

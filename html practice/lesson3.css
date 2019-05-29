@@ -1,0 +1,49 @@
+/* #only {
+    background-color: red
+}
+
+.demo {
+    background-color: pink;
+}
+.demo1{  
+    color: red
+}
+div {
+    color: white;
+} */
+
+/* 父子选择器 */
+/* div span{
+    background-color: red;
+} */
+
+/* 直接子元素选择器 */
+/* div > em{
+    background-color: red;
+} */
+
+/* 并列选择器 */
+
+/* #idDiv p.classP{
+    background-color: red;
+}
+
+div .classP#idP{
+    background-color: green;
+} */
+
+/* 分组选择器 */
+/* em, 
+strong, 
+span{   
+    background-color: red;
+} */
+
+div{
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    font-family: Arial;
+    color: #ff4400;
+    border: 1.5px dashed black;
+}

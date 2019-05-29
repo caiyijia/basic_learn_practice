@@ -1,0 +1,56 @@
+/* div{
+    border:1px solid black;
+    text-align: left;
+    height: 200px;
+    line-height: 20px;
+    text-indent: 2em;
+} */
+/* del{
+    text-decoration: none;
+} */
+/* span{
+    color:rgb(0, 0, 238);
+    text-decoration: underline;
+    cursor: -webkit-grab;
+} */
+/* a:hover{
+    text-decoration: underline;
+    background-color: #ff4400;
+    color: #fff ;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: arial;
+    border-radius: 10px;
+} */
+
+body{
+    margin:0;
+}
+.demo{
+    /* position: absolute;
+    left: 500px;
+    top: 500px; */
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: relative;
+    top: 200px;
+    left: 200px;
+    opacity: 0.5;
+}
+.wrapper{
+    width: 200px;
+    height: 200px;
+    background-color: black;
+    opacity: 0.5;
+}
+.content{
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+}
+.box{
+    width: 50px;
+    height: 50px;
+    background-color: yellow;
+}

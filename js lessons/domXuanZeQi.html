@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dom选择器，节点类型</title>
+</head>
+<body>
+   
+   
+    
+    <!-- <div id="only" class="demo"></div> -->
+
+    <script type="text/javascript">
+    
+    // var div = document.getElementById('only');
+    
+    // var div = document.getElementsByTagName('div');
+
+    // var p = document.getElementsByClassName('demo')[0];
+
+    // var strong = document.getElementsByTagName('strong')[0];
+
+
+    // // 封装函数，返回元素e的第n个兄弟元素节点，n为正，返回后面的兄弟元素节点，n为负，返回前面的，n为0，返回自己。
+    // function retParent(elem, n) {
+        
+    //     while(elem && n) {
+
+    //         elem = elem.parentElement;
+    //         n --;
+    //     }
+    //     return elem;
+    // }
+
+    // var i = document.getElementsByTagName('i')[0];
+
+    //编辑函数，封装myChildren功能，解决以前部分浏览器的兼容性问题
+    // Element.prototype.myChildren = function () {
+
+    //     var child = this.childNodes;
+    //     var len = child.length;
+    //     var arr = [];
+    //     for(var i = 0; i < len; i ++){
+    //         if(child[i].nodeType == 1) {
+    //             arr.push(child[i]);
+    //         }
+    //     }
+    //     return arr;
+    // }
+    // var div = document.getElementsByTagName('div')[0];
+
+    var div = document.createElement('div');
+    var p = document.createElement('p');
+    div.setAttribute('class','example');
+    p.setAttribute('class','slogan');
+    var text = document.createTextNode('最帅');
+    p.appendChild(text);
+    div.appendChild(p);
+    document.body.appendChild(div);
+
+
+    
+    
+    </script>
+
+
+</body>
+</html>

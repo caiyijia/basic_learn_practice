@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* P{
+    width:300px;
+    height: 50px;
+    line-height: 25px;
+    border: 2px solid black;
+    overflow: hidden;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+} */
+
+/* div{
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+    background-image: url(hs.jpg);
+    background-size: 200px 200px;
+    
+} */
+
+a{
+    display: inline-block;
+    text-decoration: none;
+    color: #f40;
+    width: 310px;
+    height: 0px;
+    padding-top: 80px;
+    border: 1px solid black;
+    background-image: url(https://gw.alicdn.com/tfs/TB1YLbcRpXXXXXFXFXXXXXXXXXX-310-78.png);
+    background-color: #f40;
+    
+    /* text-indent: 310px;
+
+    white-space: nowrap;
+    overflow: hidden; */
+
+
+}

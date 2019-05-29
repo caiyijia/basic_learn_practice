@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对象、包装类（下）</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+
+        // function Person(name, height) {
+        //     // var this = {}
+        //     this.name = name;
+        //     this.height = height;
+        //     this.say = function () {
+        //         console.log(this.say);
+        //     }
+
+        //     // ruturn this;
+        // }
+        // var person = new Person('xiaowang',180);
+    
+        // var str = "abcd";
+        // str.length = 2;
+        // //new String('abcd').length = 2; delete
+        // //
+        // //
+        // console.log(str);
+
+        // var str = "abc";
+        // str += 1;
+        // var test = typeof(str); //test == "string";
+        // if (test.length == 6) {
+        //     test.sign = "typeof的返回结果可能为string";
+        //     //new String(test).sign = "xxx";   delete
+        // }
+        // //new String(test).sign
+        // console.log(test.sign);
+    
+
+        // var x = 1, y = z = 0;
+
+        // function add(n) {
+        //     return n = n + 1;
+        // }
+        // y = add(x);
+        // function add(n) {
+        //     return n = n + 3;
+
+        // }
+        // z = add(x);
+        // // x y z
+
+        // 写一个方法，求一个字符串的字节长度。 字符串有一个方法charCodeAt();一个中文占两个字符，一个英文占一个字符。
+
+        var str = "蔡一甲Adam "
+
+        function bytesLength(str) {
+
+            var count = str.length;
+
+            for (i = 0; i <= str.length; i ++) {
+
+                if(str.charCodeAt(i) > 255) {
+                    ++ count;
+                }
+                
+            }
+            return  count;
+    
+
+}
+
+    </script>
+
+
+
+
+</body>
+</html>

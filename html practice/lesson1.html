@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meata charset="utf-8"></meata>
+        <title>document</title>
+        <style type="text/css">
+        input{
+            border:1px solid #999;
+        }
+        </style>
+    </head>
+    <body> 
+        <!-- <a href="tel：15238677039"  style="font-size:12rem;">给一甲打电话</a> -->
+        <!-- <a href="mailto:caiyijias@gamil.com">send email to Yijia</a> -->
+        <!-- <a href="javascript:while(1){alert('you dumb')}">you just try me! come on!</a> 协议限定符 -->
+        <!-- <ul>
+            <li>test1</li>
+        </ul> -->
+        <form method="GET" action="">
+            <p>
+                username:<input type="text" name="username" 
+                style="color:#999"
+                value="请输入用户名" onfocus="if(this.value=='请输入用户名')
+            {
+                this.value='';
+                this.style.color='#424242'
+            }"
+                onblur="if(this.value==''){this.value='请输入用户名'; this.style.color='#999'}">
+            </p>
+            <p>
+                password:<input type="password" name="password">
+            </p>
+            <!-- 单选
+            1.a<input type="radio" name="star" value="aaa">
+            2.b<input type="radio" name="star" value="bbb">
+            3.c<input type="radio" name="star" value="ccc"> -->
+            
+
+            <input type="submit" value="提交">
+        </form>
+    </body>
+</html>

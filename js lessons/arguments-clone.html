@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>arguments, 克隆</title>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        var obj = {
+            name: "abc",
+            age: 123,
+            card: ['visa', 'master'],
+            wife: {
+                name: "bcd",
+                son: {
+                    name: "aaa"
+                }
+            }
+
+        }
+
+        var obj1 = {
+            
+        }
+        // name : obj.name,
+                    // age : 123,
+                    // card : [obj.card[0],obj.card[1]],
+                    // wife : {
+                    //     name : "bcd",
+                    //     son : {
+
+                    //     }
+                    // }
+
+
+        // 遍历对象 for(var prop in obj)
+        //1. 判断是否原始值 typeof() object
+        //2. 判断是数组还是对象 typeof() object instanceof `toString` constructor
+        //3. 建立相应的数组或对象
+        //递归  
+
+
+
+        function deepClone(origin, target) {
+
+            var target = target || {},
+                toStr = Object.prototype.toString,
+                arrStr = "[object Array]";
+        
+            for (var prop in origin) {
+
+                if (origin.hasOwnProperty(prop)) {
+                    if (origin[prop] !== 'null' && typeof (origin[prop]) == 'object') {
+
+                        // if (toStr.call(origin[prop]) == arrStr) {
+                        //     target[prop] = [];
+                        // } else {
+                        //     target[prop] = {};
+                        // }
+                        target[prop] = toStr.call(orgin[prop]) == arrStr ? [] : {};
+                        deepClone(origin[prop], target[prop]); //深层拷贝
+                    } else {
+                        target[prop] = origin[prop];
+                    }
+                }
+                
+            }
+            return target;
+        }
+
+        // var num = 1 > 0 ? ('10' > "9" ? 1 : 0) : 2;
+
+        
+    </script>
+
+</body>
+
+</html>

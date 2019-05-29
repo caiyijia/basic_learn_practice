@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: #424242;
+    font-family: arial;
+}
+
+a {
+    text-decoration: none;
+}
+
+.nav::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.nav {
+    list-style: none;
+}
+
+.nav .list-item {
+    float: left;
+    margin: 0 10px;
+    height: 30px;
+    line-height: 30px;
+
+}
+
+.nav .list-item a {
+    padding: 0 5px;
+    color: #f40;
+    font-weight: bold;
+    height: 30px;
+    display: inline-block;
+    border-radius: 15px;
+}
+
+.nav .list-item a:hover {
+    background-color: #f30;
+    color: #fff;
+}
+
+/* .right {
+    position: absolute;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    opacity: 0.5;
+}
+
+.left {
+    margin-right: 100px;
+    height: 100px;
+    background-color: #112233;
+} */
+
+/* .wrapper {
+    margin-left: 100px;
+    margin-top: 100px;
+    width: 100px;
+    height: 100px;
+    background-color: black; */
+/* border-top: 1px solid black; */
+/* 傻逼但有效的方法 */
+
+
+/* overflow:hidden */
+/* display: inline-block; */
+/* float: left; */
+/* position: absolute; */
+/* 改变了父级的渲染规则 */
+/* } */
+
+/* .content {
+    margin-left: 50px;
+    margin-top: 50px;
+    width: 50px;
+    height: 50px;
+    background-color: pink;
+}
+
+.box1 {
+    background-color: red;
+    margin-right: 100px;
+}
+.box2 {
+    background-color: forestgreen;
+    margin-left: 100px;
+} 
+.demo1 {
+    background-color: red;
+    margin-bottom: 100px;
+}
+.demo2 {
+    background-color: forestgreen;
+    margin-top: 200px;
+} */
+/* 
+.box{
+    float: left;
+    width:100px;
+    height: 100px;
+    background-color: red;
+    margin-bottom: 100px;
+    
+}
+
+.demo {
+   
+    width: 200px;
+    height: 200px;
+    background-color: black;
+    opacity: 0.5;
+} */
+/* .wrapper{
+    overflow: hidden;
+    clear: both;
+} */
+
+/* 伪元素 */
+/* span::before{
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    content: "";
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: black;
+} */
+
+/* span::after{
+    content: ",那是肯定的！"
+
+} */
+
+
+/* .wrapper{
+    float: left;
+    border: 10px solid red;
+}
+.content{
+    float: left;
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    color: #fff;
+} */

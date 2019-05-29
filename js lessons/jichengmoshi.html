@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>继承模式，命名空间，对象枚举</title>
+
+</head>
+
+<body>
+    <script type="text/javascript">
+        // Father.prototype.lastName
+
+        //圣杯模式
+        // Father.prototype
+        // function F() {
+
+        // }
+        // F.prototype = Father.prototype
+        // Son.prototype = new F();
+
+        // function inherit(Target, Origin) {
+        //     function F() {};
+        //     F.prototype = Origin.prototype;
+        //     Target.prototype = new F();
+        //     Target.prototype.constructor = Target;
+        //     Target.prototype.uber = Origin.prototype;
+        // }
+        // Father.prototype.lastName = "Deng";
+
+        // function Father() {
+
+        // }
+
+        // function Son() {
+
+        // }
+
+        // inherit(Son,Father);
+        // var son = new Son();
+        // var father = new Father();
+
+
+        var inherit = (function(){
+            return function(Target, Origin){
+                function F(){};
+                F.prototype = Origin.prototype;
+                Target.prototype = new F();
+                Target.prototype.constructor = Target;
+                Target.prototype.uber = Origin.prototype;
+            }
+        }());
+
+
+        // var deng = {
+        //     wife1 : {name : "xiaoliu"},
+        //     wife2 : {name :  "xiaozhang"},
+        //     wife3 : {name : "xiaomeng"},
+        //     wife4 : {name : "xiaowang"},
+
+        //     sayWife : function (num) {
+        //         return this['wife'+num];
+        //     }
+        // }
+
+
+        // obj.name ----> obj ['name']
+
+        // 枚举 enumeration
+        // var obj = {
+        //     name: '13',
+        //     age: 123,
+        //     sex: "male",
+        //     height: 180,
+        //     weight: 75,
+        //     __proto__ : {
+        //         lastName : "deng",
+        //     }
+        // }
+
+
+        // //for in 循环 ---> 遍历（枚举）对象 enumeration 
+        // for(var prop in obj) {
+        //     if(obj.hasOwnProperty(prop)) {
+        //         console.log(obj[prop]);
+        //     }
+        //     //只能是obj[prop], prop是一个变量不是一个属性。 不然就是 obj.prop ---> obj['prop']  属性一定要加' '
+            
+        // }
+
+            // 看A对象的原型链上有没有B的原型
+            // A instanceof B
+
+            // var bar = {a:"002"};
+            // function print() {
+            //     bar.a = 'a';
+            //     Object.prototype.b = 'b';
+            //     return function inner () {
+            //         console.log(bar.a); //a
+            //         console.log(bar.b); //b
+
+            //     }
+            // }
+
+            // print()();
+
+        var obj = {
+            name : 'abc',
+            age : 123,
+            sex : 'female',
+            card : ['visa', 'union',[1,2]]
+        }
+    
+        var obj1 = {
+            card : [obj.card[0],obj.card[1],[]]
+        }
+
+        function clone(origin, target) {
+            var target = target || {};
+            for(var prop in origin) {
+                target[prop] = origin[prop];
+            }
+            return target;
+        }
+
+        clone(obj, obj1);
+    </script>
+
+</body>
+
+</html>

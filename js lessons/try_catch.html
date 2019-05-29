@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>try,catch,es5标准模式</title>
+
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            box-sizing: border-box;
+            float: left;
+            width: 20px;
+            height: 20px;
+            /* border: 1px solid black; */
+        }
+
+        ul {
+            list-style: none;
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+        <li img-data="0"></li>
+
+        
+
+    </ul>
+
+    <script type="text/javascript">
+        // 在try里面发生的错误，不会执行错误后的try里面的代码
+
+        // 基于es3.0 + es5.0 的新增方法使用
+
+        // es5.0严格模式，那么es3.0和es5.0 产生冲突的部分就是用es5.0，否则就会用 es3.0
+
+        // es5.0严格模式的启动
+
+        // "use strict";
+
+        // function test() {
+        //     console.log(arguments.callee);
+        // }
+
+        // test();
+        // var div = document.getElementsByTagName('div')[0];
+        // div.style.width = "100px";
+        // div.style.height = "100px";
+        // div.style.backgroundColor = "red";
+
+        // var count = 0;
+        // div.onclick = function () {
+
+        // count ++;
+        // if(count % 2 == 1) {
+        //     this.style.backgroundColor = "green";
+        // }else{
+        //     this.style.backgroundColor = "red";
+        // }
+
+        // }
+
+        // var div = document.createElement('div');
+        // document.body.appendChild(div);
+
+        // div.style.width = "100px";
+        // div.style.height = "100px";
+        // div.style.backgroundColor = "red";
+        // div.style.position = "absolute";
+        // div.style.left = "0";
+        // div.style.top = "0";
+
+        // document.onkeydown = function (e) {
+        //     // if(e.which == 38) {
+        //     //     div.style.top = parseInt(div.style.top) + 5 + "px";
+        //     // }
+        //     switch (e.which) {
+        //         case 38:
+        //             div.style.top = parseInt(div.style.top) - 5 + "px";
+        //             break;
+        //         case 40:
+        //             div.style.top = parseInt(div.style.top) + 5 + "px";
+        //             break;
+        //         case 37:
+        //             div.style.left = parseInt(div.style.left) - 5 + "px";
+        //             break;
+        //         case 39:
+        //             div.style.left = parseInt(div.style.left) + 5 + "px";
+        //     }
+
+
+        // }
+
+        // setInterval(function () {
+
+        //     div.style.left = parseInt(div.style.left + 2 + "px");
+
+        // }, 50);
+
+        var ul = document.getElementsByTagName('ul')[0];
+
+        ul.onmouseover = function (e) {
+            var event = e || window.event;
+            var target = event.target || event.srcElement;
+
+            target.style.backgroundColor = "rgb(255, 255, " + target.getAttribute('img-data') + ")" ;
+            target.setAttribute('img-data', parseInt(target.getAttribute('img-data')) + 10);           
+        }
+    </script>
+
+
+
+
+</body>
+
+</html>

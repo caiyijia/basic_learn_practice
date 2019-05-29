@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.nav .nav-bd {
+    margin: 0 auto;
+    width: 1190px;
+    height: 35px;
+    background: #f5f5f5;
+}
+
+
+
+body,
+button,
+input,
+select,
+textarea {
+    font: 12px/1.5 tahoma, arial, 'Hiragino Sans GB', '\5b8b\4f53', sans-serif;
+}
+
+body {
+    color: #3C3C3C;
+    -webkit-font-smoothing: antialiased;
+    background-color: #f4f4f4;
+}
+
+.nav .nav-bd::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.nav::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.nav .nav-bd .nav-bd-l {
+    float: left;
+}
+
+.nav .nav-menu {
+    float: left;
+}
+
+.nav .nav-bd .nav-bd-r {
+    float: right;
+}
+
+.nav .nav-bd .h {
+    color: #f22e00 !important;
+}
+
+.nav {
+    z-index: 10000;
+    width: 100%;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #eee;
+}
+
+
+.nav .nav-menu .nav-menu-hd {
+    z-index: 10002;
+    position: relative;
+    padding: 0 6px;
+    height: 35px;
+    line-height: 35px;
+}
+
+.nav .nav-menu .nav-menu-bd {
+    z-index: 10001;
+    position: relative;
+    display: none;
+    margin-top: -1px;
+}
+
+.nav .nav-switch .nav-region {
+    float: left;
+    margin-right: 7px;
+}
+
+.nav .nav-menu .nav-menu-hd a {
+    float: left;
+    margin-right: 7px;
+    font-size: 12px;
+    color: #6C6C6C;
+}
+
+.nav .nav-bd a:hover {
+    color: #f40;
+    text-decoration: none;
+}
+
+
+.nav .nav-menu .nav-menu-bd .nav-menu-bd-panel {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 8px;
+    line-height: normal;
+    border: 1px solid #EEE;
+    background: #FFF;
+}
+
+.nav .nav-menu .nav-menu-list .nav-menu-bd-panel {
+    padding: 8px 0;
+}
+
+.nav .nav-menu .nav-menu-list .nav-menu-bd-panel a {
+    display: block;
+    padding: 0 5px;
+    line-height: 28px;
+    white-space: nowrap;
+    color: #6C6C6C;
+}
+
+body a {
+    color: #3C3C3C;
+    cursor: pointer;
+}
+
+.nav .nav-bd a {
+    color: #3c3c3c;
+}
+
+.nav .nav-menu .nav-menu-hd a {
+    float: left;
+    margin-right: 7px;
+    font-size: 12px;
+    color: #6C6C6C;
+}
+
+.nav .nav-menu .nav-menu-hd a span {
+    float: left;
+    cursor: pointer;
+}
+
+.nav .nav-bd-r .nav-icon {
+    width: 12px;
+}
+
+.nav .nav-icon-highlight {
+    color: #f40;
+}
+
+.nav .nav-icon {
+    font-family: global-iconfont;
+    font-size: 12px;
+    font-style: normal;
+    margin-top: -3px\9;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscaleFont type;
+    margin-right: 5px;
+    _line-height: 33px;
+    color: #9c9c9c;
+}
+
+.nav .nav-arrow {
+    display: block;
+    float: left;
+    width: 12px;
+    height: 6px;
+    line-height: 6px;
+    overflow: hidden;
+    margin-top: 16px;
+}
+
+.nav .nav-icon {
+    font-family: global-iconfont;
+    font-size: 12px;
+    font-style: normal;
+    margin-top: -3px\9;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscaleFont type;
+    margin-right: 5px;
+    _line-height: 33px;
+    color: #9c9c9c;
+}
+
+.nav .nav-bd-r .nav-icon {
+    width: 12px;
+}
+
+.nav .nav-arrow .nav-icon {
+    display: block;
+    margin-top: -4px;
+    margin-right: 20px;
+}
+
+.nav .nav-bd .nav-pipe {
+    padding: 0 5px;
+    font-style: normal;
+    color: #ddd;
+}
+
+.nav .nav-bd .nav-bd-r .nav-pipe {
+    float: left;
+    height: 35px;
+    line-height: 35px;
+}
+
+.top {
+    background-color: #FFF;
+    padding-top: 24px;
+    height: 97px;
+}
+
+.bottom,
+.seat,
+.top-wrap {
+    width: 1190px;
+    margin: 0 auto;
+    position: relative;
+}
+.tbh-logo {
+    float: left;
+    width: 190px;
+}
+.tb-pass {
+    background-color: transparent;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+}
+.logo {
+    width: 190px;
+    height: 80px;
+    float: left;
+    margin-top: 8px;
+}
+
+.logo h1 .logo-bd {
+    display: block;
+    margin-left: 22px;
+    padding-top: 58px;
+    width: 142px;
+    height: 0;
+    overflow: hidden;
+    text-indent: -9999px;
+    background: url(taobao-logo.png) 0 0 no-repeat;
+}

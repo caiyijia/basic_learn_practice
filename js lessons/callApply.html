@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型，原型链，call/apply </title>
+</head>
+<body>
+    <script type="text/javascript">
+    
+    // 原型是function对象的一个属性，它定义了构造函数制造出的对象的公共祖先。通过该构造函数产生的对象，可以继承该祖先的的属性。
+
+        // 构造函数的特点：大驼峰式语义化
+        // Person.prototype  --原型
+        // Person.prototype  = {}  是祖先
+
+        // Person.prototype.LastName = "Cai";
+        // Person.prototype.say = function () {
+        //     console.log('hehe');
+        // }
+
+        // Person.prototype.name = 'Sunny';
+        // function Person () {
+        //     // var this = { __proto__: Person.prototype}
+
+        // }
+        
+        // var person = new Person ();
+        
+        // // Person.prototype.name = 'Cherry';
+
+        // Person.prototype = {
+        //     name : 'cherry'
+        // }
+
+        // Grand.prototype.lastName = "Deng";
+        // function Grand() {
+
+        // }
+
+        // var grand = new Grand();
+
+        // Father.prototype = grand;
+        // function Father() {
+        //     this.name = 'xuming';
+        // }
+        // var father = new Father();
+
+        // Son.prototype = father;
+        // function Son () {
+        //     this.hobbit = "smoke";
+        // }
+        // var son = new Son();
+
+        // var obj = {name : "sunny", age : 123};
+
+        // var obj1 = Object.create(obj);
+
+        // 绝大多数对象最终都会继承自 Object.prototype  !!!
+
+        //Object.create
+
+        // function Person(name,age) {
+        //     this.name = name;
+        //     this.age = age;
+        // }
+
+        // var person = new Person('deng',100);
+        // var obj = {
+
+        // }
+        // Person.call();
+
+        //test() ---> test.call();
+
+        // function Person(name, age, sex) {
+        //     this.name = name;
+        //     this.age = age;
+        //     this.sex = sex;
+        // }
+
+        // function Student(name, age, sex, tel, grade) {
+        //     Person.call(this, name, age, sex);
+        //     this.tel = tel;
+        //     this.grade = grade; 
+        // }
+
+        // var student = new Student('sunny',123,'male',139,2017);
+
+        // 改变this指向，传参列表不同。
+        // apply 只能传一个实参，且必须为数组形式。arguments
+        // call 需要把实参按照形参的个数传进去。
+
+        
+        function main(a, b) {
+            return a % b
+        };
+
+
+
+
+
+    </script>
+
+
+
+
+</body>
+</html>
