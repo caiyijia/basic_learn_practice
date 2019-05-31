@@ -20,3 +20,5 @@ function addEvent(elem, type, handle) {
         event.returnValue = false;
     }
 }
+
+//鼠标拖动事件
