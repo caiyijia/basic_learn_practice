@@ -22,3 +22,28 @@ function addEvent(elem, type, handle) {
 }
 
 //鼠标拖动事件
+function drag(elem) {
+    var disX,
+        disY;
+    addEvent(elem, 'mousedown', function(e) {
+        var event = e || window.event;
+        disX = event.clientX - parseInt(getStyle(elem, 'left'));
+        disY = event.clientY - parseInt(getStyle(elem, 'top'));
+        addEvent (document, 'mousemove', mouseMove);
+        addEvent(document, 'mouseup', mouseUp);
+        stopBubble(event);
+        cancelHandler(event);
+    });
+
+    function mouseMove(e) {
+        var event = e || window.event;
+        elem.style.left = event.clientX - disX + 'px';
+        elem.style.left = event.clientY - disY + 'px';
+    }
+
+    function mouseUp(e) {
+        var event = e || window.event;
+        removeEvent(document, 'mousemove', mouseMove);
+        removeEvent(document, 'mouseup', mouseUp);
+    }
+}
