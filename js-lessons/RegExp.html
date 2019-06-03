@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正则表达式</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+
+        // var reg = /[0-9A-z][cd][d]/g
+        // var reg = /[^a][^b]/g
+        // var reg = /(abc)|(bcd)/g
+
+
+        // n? {0,1}
+        // n{x} {x}
+
+        //  /w === [A-z0-9_] 匹配包括下划线的任何单词字符。等价于“[A-Za-z0-9_]”。注意Unicode正则表达式会匹配中文字符。
+        // var reg = /^abc$/g;  // 限定为abc
+
+        // var reg = /^\d[\s\S]*\d$/g; //首位都要有数字
+
+        // reg.exec
+
+        // str.replace 没有访问全局的能力
+        // str.replace("a", "b") // 返回ba
+        // var str = "aa"
+
+        // var reg = /(\w)\1(\w)\2/g;
+        
+        // var str = "aabbcc";
+        // var reg = /(\w)\1(\w)\2/g;
+        // // console.log(str.replace(reg, "$2$2$1$1"));
+        // console.log(str.replace(reg, function ($,$1,$2) {
+        //     return $2 + $2 + $1 + $1 + "abc";  //bbaaabccc
+        // }));
+    
+    
+        // the-first-name => theFirstName
+        // var reg = /-(\w)/g;
+        // var str = "the-first-name";
+        // console.log(reg.exec(str));
+        // console.log(str.replace(reg, function($, $1){
+        //     return $1.toUpperCase();
+        // }));
+    
+
+        //正向预查/正向断言
+        // var str = "abaaaaa"
+        // var reg = /a(?!b)/g
+        // var reg1 = /a(?=b)/g
+    
+        // var str = "a     a";
+        // var reg = /\s/g;
+        // var reg1 = / /g;
+        
+
+        //100.000.000
+        var str = "100000000";
+        var reg = /(?=(\B)(\d{3})+$)/g;
+        console.log(str.replace(reg, "."));
+                
+    
+    
+    
+    
+    
+    
+    </script>
+
+
+
+
+
+</body>
+</html>
