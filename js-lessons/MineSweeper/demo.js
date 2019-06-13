@@ -13,8 +13,9 @@ var closeBtn = document.getElementById('close');
 var score = document.getElementById('score');
 var minesNum;
 var mineOver;
+var realNum;
 var block;
-var mineMap = []; //必须为数组!!!
+var mineMap; //必须为数组!!!
 var startGameBool = true;
 
 
@@ -51,10 +52,11 @@ function bindEvent() {
 }
 
 function init() {
-    
-    minesNum = 10;
-    mineOver = 10;
-    score.innerHTML = mineOver;
+
+    minesNum = 20; //需要生成的雷数
+    mineOver = 20; //显示的剩余雷数
+    realNum = 20; //真实的雷数
+    mineMap = []; //雷的位置
     for (var i = 0; i < 10; i++) {
         for (var j = 0; j < 10; j++) {
             var con = document.createElement('div');
@@ -81,7 +83,7 @@ function init() {
 }
 
 function leftClick(dom) {
-    if(dom.classList.contains('flag')) {
+    if (dom.classList.contains('flag')) {
         return;
     }
     var isLei = document.getElementsByClassName('isLei');
@@ -105,7 +107,7 @@ function leftClick(dom) {
             for (var j = posY - 1; j <= posY + 1; j++) {
                 var aroundBox = document.getElementById(i + '-' + j);
                 if (aroundBox && aroundBox.classList.contains('isLei')) {
-                    n ++;
+                    n++;
                 }
             }
 
@@ -113,12 +115,15 @@ function leftClick(dom) {
         dom && (dom.innerHTML = n);
         if (n == 0) {
             for (var i = posX - 1; i <= posY + 1; i++) {
+                // i-1,j-1  i-1,j   i-1,j+1
+                // i,j-1    i,j     i,j+1
+                // i+1,j-1  i+1,j   i+1,j+1
                 for (var j = posY - 1; j <= posY + 1; j++) {
                     var nearBox = document.getElementById(i + '-' + j);
-                    if (nearBox && nearBox.length != 0) {
-                        if (!nearBox.classList.contains('check')) {
-                            nearBox.classList.add('check');
-                            leftClick(nearBox);
+                    if (nearBox) {
+                        if (!nearBox.classList.contains('num') && !nearBox.classList.contains('isLei')) { 
+                        // nearBox.classList.add('check');
+                        leftClick(nearBox);
                         }
 
                     }
@@ -134,16 +139,25 @@ function rightClick(dom) {
         return;
     }
     dom.classList.toggle('flag');
-    if (dom.classList.contains('isLei') && dom.classList.contains('flag')) {
+    if (dom.classList.contains('flag')) {
         mineOver--;
+        if (dom.classList.contains('isLei')) {
+            realNum--;
+        }
     }
-    if (dom.classList.contains('isLei') && !dom.classList.contains('flag')) {
+    if (!dom.classList.contains('flag')) {
         mineOver++;
+        if (dom.classList.contains('isLei')) {
+            realNum++;
+        }
     }
 
     score.innerHTML = mineOver;
-    if (mineOver == 0) {
+    if (realNum == 0) {
         alertBox.style.display = 'block';
-        alertBox.style.backgroundImage = 'url("imgs/success.png")'
+        alertImg.style.backgroundImage = 'url("imgs/success.png")'
+        alertBox.oncontextmenu = function () {
+            return false;
+        }
     }
 }
