@@ -13,7 +13,7 @@
 }
 
 .startBtn {
-    display: none;
+    /* display: none; */
     background-image: url('imgs/startGame.png');
     height: 170px;
     width: 200px;
@@ -39,13 +39,14 @@
     width: 24%;
     position: absolute;
     height: 1099px;
-    border-right: 1px solid black;
+   
 }
 
 .left-side img {
-    /* display: none; */
+    display: none;
     margin-left: 50px;
     margin-top: 50px;
+    cursor: pointer;
 }
 
 .main {
@@ -54,7 +55,7 @@
     left: 25%;
     width: 50%;
     height: 90%;
-    border: 1px solid black;
+    
 }
 
 .header {

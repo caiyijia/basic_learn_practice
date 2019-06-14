@@ -4,10 +4,20 @@
 // 判断吃到食物 => 食物消失，🐍长度+1
 // 判断游戏结束，弹出框
 
+var startBtn = document.getElementsByClassName('startBtn')[0];
+var startPage = document.getElementsByClassName('startPage')[0];
+var startP = document.getElementById('startP');
 var content = document.getElementById('content');
 var startPage = document.getElementById('startPage');
+var scoreBox = document.getElementById('score');
+var loser = document.getElementsByClassName('loser')[0];
+var loserScore = document.getElementsByClassName('loserScore')[0];
 var snakeMove;
-var speed = 1000;
+var speed = 200;
+var startGameBool = true;
+var startPauseBool = true;
+var close = document.getElementsByClassName('close')[0];
+
 
 
 init();
@@ -38,17 +48,17 @@ function init() {
     this.right = false;
     this.up = true;
     this.down = true;
-    startGame();
+    this.score = 0;
+
 }
-var snakeLen = this.snakeBody.length;
+
 
 function startGame() {
-
+    startPage.style.display = 'none';
+    startP.style.display = 'block';
     food();
     snake();
-    snakeMove = setInterval(function () {
-        move();
-    }, speed);
+
     bindEvent();
 }
 
@@ -66,7 +76,7 @@ function food() {
 }
 
 function snake() {
-    for (var i = 0; i < snakeLen; i++) {
+    for (var i = 0; i < this.snakeBody.length; i++) {
         var snake = document.createElement('div');
         snake.style.width = this.snakeW + 'px';
         snake.style.height = this.snakeH + 'px';
@@ -94,7 +104,7 @@ function snake() {
 }
 
 function move() {
-    for (var i = snakeLen - 1; i > 0; i--) {
+    for (var i = this.snakeBody.length - 1; i > 0; i--) {
         this.snakeBody[i][0] = this.snakeBody[i - 1][0];
         this.snakeBody[i][1] = this.snakeBody[i - 1][1];
     }
@@ -117,7 +127,74 @@ function move() {
     }
     removeClass('snake');
     snake();
-    
+    if (this.snakeBody[0][0] == this.foodX && this.snakeBody[0][1] == this.foodY) {
+        var snakeEndX = this.snakeBody[this.snakeBody.length - 1][0];
+        var snakeEndY = this.snakeBody[this.snakeBody.length - 1][1];
+        switch (this.direct) {
+            case 'right':
+                this.snakeBody.push([snakeEndX + 1, snakeEndY, 'body']);
+                break;
+            case 'up':
+                this.snakeBody.push([snakeEndX, snakeEndY - 1, 'body']);
+                break;
+            case 'left':
+                this.snakeBody.push([snakeEndX - 1, snakeEndY, 'body']);
+                break;
+            case 'down':
+                this.snakeBody.push([snakeEndX, snakeEndY + 1, 'body']);
+                break;
+            default:
+                break;
+        }
+        this.score += 1;
+        scoreBox.innerHTML = this.score;
+        removeClass('food');
+        food();
+    }
+
+    // set border
+    if (this.snakeBody[0][0] < 0 || this.snakeBody[0][0] >= this.mapW / 20) {
+        console.log('fail');
+        reloadGame();
+    }
+    if (this.snakeBody[0][1] < 0 || this.snakeBody[0][1] >= this.mapH / 20) {
+        console.log('fail');
+        reloadGame();
+    }
+
+    var snakeHX = this.snakeBody[0][0];
+    var snakeHY = this.snakeBody[0][1];
+    for (var i = 1; i < this.snakeBody.length; i++) {
+        if (snakeHX == snakeBody[i][0] && snakeHY == snakeBody[i][1]) {
+            console.log("fail");
+            reloadGame();
+        }
+    }
+}
+
+//结束后初始化
+function reloadGame() {
+    removeClass('snake');
+    removeClass('food');
+    clearInterval(snakeMove);
+    this.snakeBody = [
+        [3, 1, 'head'],
+        [2, 1, 'body'],
+        [1, 1, 'body']
+    ];
+    this.direct = 'right';
+    this.left = false;
+    this.right = false;
+    this.up = true;
+    this.down = true;
+
+
+    loser.style.display = 'block';
+    startP.style.display = 'none';
+    loserScore.innerHTML = this.score;
+    this.score = 0;
+    scoreBox.innerHTML = this.score;
+
 }
 
 function removeClass(className) {
@@ -170,10 +247,48 @@ function setDirect(code) {
 
     }
 }
+bindEvent();
 
 function bindEvent() {
-    document.onkeydown = function (e) {
-        var code = e.keyCode;
-        setDirect(code);
+
+    close.onclick = function () {
+        loser.style.display = 'none';
+        startGameBool = true;
+        startPauseBool = true;
+        startP.style.display = 'block';
+        startP.setAttribute('src', './imgs/start.png');
+    }
+    startBtn.onclick = function () {
+        startAndPause();
+    }
+
+    startP.onclick = function () {
+        startAndPause();
+    }
+}
+
+function startAndPause() {
+    if (startPauseBool) {
+        if (startGameBool) {
+            startGame();
+            startGameBool = false;
+        }
+        startP.setAttribute('src', './imgs/pause.png');
+        document.onkeydown = function (e) {
+            var code = e.keyCode;
+            setDirect(code);
+        }
+        snakeMove = setInterval(function () {
+            move();
+        }, speed);
+        startPauseBool = false;
+    } else {
+        startP.setAttribute('src', './imgs/start.png');
+        clearInterval(snakeMove);
+        document.onkeydown = function (e) {
+            e.returnValue = false;
+            return false;
+        }
+        startPauseBool = true;
     }
 }
