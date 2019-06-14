@@ -6,6 +6,9 @@
 
 var content = document.getElementById('content');
 var startPage = document.getElementById('startPage');
+var snakeMove;
+var speed = 1000;
+
 
 init();
 
@@ -27,7 +30,8 @@ function init() {
         [3, 1, 'head'],
         [2, 1, 'body'],
         [1, 1, 'body']
-    ]
+    ];
+
     // game properties
     this.direct = 'right';
     this.left = false;
@@ -36,12 +40,16 @@ function init() {
     this.down = true;
     startGame();
 }
-
+var snakeLen = this.snakeBody.length;
 
 function startGame() {
 
     food();
     snake();
+    snakeMove = setInterval(function () {
+        move();
+    }, speed);
+    bindEvent();
 }
 
 function food() {
@@ -57,8 +65,6 @@ function food() {
 
 }
 
-const snakeLen = this.snakeBody.length;
-
 function snake() {
     for (var i = 0; i < snakeLen; i++) {
         var snake = document.createElement('div');
@@ -69,11 +75,26 @@ function snake() {
         snake.style.top = this.snakeBody[i][1] * 20 + 'px';
         snake.classList.add(this.snakeBody[i][2]);
         this.mapDiv.appendChild(snake).classList.add('snake');
+        switch (this.direct) {
+            case 'right':
+                break;
+            case 'up':
+                snake.style.transform = 'rotate(270deg)';
+                break;
+            case 'left':
+                snake.style.transform = 'rotate(180deg)';
+                break;
+            case 'down':
+                snake.style.transform = 'rotate(90deg)';
+                break;
+            default:
+                break;
+        }
     }
 }
 
 function move() {
-    for (var i = 0; i < snakeLen, i++;) {
+    for (var i = snakeLen - 1; i > 0; i--) {
         this.snakeBody[i][0] = this.snakeBody[i - 1][0];
         this.snakeBody[i][1] = this.snakeBody[i - 1][1];
     }
@@ -88,14 +109,15 @@ function move() {
             this.snakeBody[0][0] -= 1;
             break;
         case 'down':
-            this.snakeBody[0][0] += 1;
+            this.snakeBody[0][1] += 1;
             break;
-        default:
-            break;
+            // default:
+            //     break;
 
     }
     removeClass('snake');
     snake();
+    
 }
 
 function removeClass(className) {
@@ -106,7 +128,7 @@ function removeClass(className) {
 }
 
 function setDirect(code) {
-    swithch(code) {
+    switch (code) {
         case 37:
             if (this.left) {
                 this.direct = 'left';
@@ -115,6 +137,7 @@ function setDirect(code) {
                 this.up = true;
                 this.down = true;
             }
+            break;
         case 38:
             if (this.up) {
                 this.direct = 'up';
@@ -123,6 +146,7 @@ function setDirect(code) {
                 this.up = false;
                 this.down = false;
             }
+            break;
         case 39:
             if (this.right) {
                 this.direct = 'right';
@@ -131,16 +155,18 @@ function setDirect(code) {
                 this.up = true;
                 this.down = true;
             }
+            break;
         case 40:
             if (this.down) {
-                this.direct = 'left';
+                this.direct = 'down';
                 this.left = true;
                 this.right = true;
                 this.up = false;
                 this.down = false;
             }
+            break;
         default:
-        break;
+            break;
 
     }
 }

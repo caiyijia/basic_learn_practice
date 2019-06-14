@@ -6,7 +6,7 @@
 .startPage {
     width: 100%;
     z-index: 999;
-    height: 1100px;
+    height: 1099px;
     position: absolute;
     top: 0;
     left: 0;
@@ -38,7 +38,7 @@
 .left-side {
     width: 24%;
     position: absolute;
-    height: 1100px;
+    height: 1099px;
     border-right: 1px solid black;
 }
 
